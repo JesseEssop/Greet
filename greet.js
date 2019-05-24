@@ -13,43 +13,45 @@ var existing = JSON.parse(localStorage.getItem("Name"))
 var keep = existing || {};
 var counter = 0;
 
-window.onload = function(){
-    var refreshNames= Object.keys(keep);
+window.onload = function () {
+    var refreshNames = Object.keys(keep);
     counter = refreshNames.length;
     document.getElementById("total").innerHTML = counter;
 }
 
 greetBtn.addEventListener('click', function () {
-    var newName = textArea.value.trim();
-    newName = newName.toUpperCase();
-    console.log(newName);
-    var checkedRadioBtn = document.querySelector("input[name='languageType']:checked");
-    if (checkedRadioBtn) {
-        var languageType = checkedRadioBtn.value;
+    if (isNaN(textArea.value.trim())) {
+        var newName = textArea.value.trim().toLowerCase();
+        newName = newName.charAt(0).toUpperCase() + newName.slice(1);
+        console.log(newName);
+        var checkedRadioBtn = document.querySelector("input[name='languageType']:checked");
+        if (checkedRadioBtn) {
+            var languageType = checkedRadioBtn.value;
+        }
+
+        if (keep[newName] === undefined) {
+            keep[newName] = 0;
+            counter++;
+        }
+
+        if (languageType === "english") {
+            final = english + newName;
+
+        }
+        if (languageType === "afrikaans") {
+            final = afrikaans + newName;
+
+        }
+        if (languageType === "xhosa") {
+            final = xhosa + newName;
+
+        }
+        localStorage.setItem("Name", JSON.stringify(keep));
+
+        document.getElementById("total").innerHTML = counter;
+
+        greetNameElement.innerHTML = final;
     }
-
-    if (keep[newName] === undefined) {
-        keep[newName] = 0;
-        counter++;
-    }
-
-    if (languageType === "english") {
-        final = english + textArea.value.trim();
-
-    }
-    if (languageType === "afrikaans") {
-        final = afrikaans + textArea.value.trim();
-
-    }
-    if (languageType === "xhosa") {
-        final = xhosa + textArea.value.trim();
-
-    }
-    localStorage.setItem("Name", JSON.stringify(keep));
-
-    document.getElementById("total").innerHTML = counter;
-
-    greetNameElement.innerHTML = final;
 })
 
 
