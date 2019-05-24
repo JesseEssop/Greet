@@ -21,6 +21,8 @@ window.onload = function(){
 
 greetBtn.addEventListener('click', function () {
     var newName = textArea.value.trim();
+    newName = newName.toUpperCase();
+    console.log(newName);
     var checkedRadioBtn = document.querySelector("input[name='languageType']:checked");
     if (checkedRadioBtn) {
         var languageType = checkedRadioBtn.value;
@@ -32,15 +34,15 @@ greetBtn.addEventListener('click', function () {
     }
 
     if (languageType === "english") {
-        final = english + newName;
+        final = english + textArea.value.trim();
 
     }
     if (languageType === "afrikaans") {
-        final = afrikaans + newName;
+        final = afrikaans + textArea.value.trim();
 
     }
     if (languageType === "xhosa") {
-        final = xhosa + newName;
+        final = xhosa + textArea.value.trim();
 
     }
     localStorage.setItem("Name", JSON.stringify(keep));
