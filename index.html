@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="greet.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="greetings">
+            <div class="box1">
+                <h1>Greetings</h1>
+            </div>
+
+            <div class="col-4" style="width:300px">
+                Name: <input class="textArea" type="string" value="">
+                <span id="total"><span class="greetAmount"> </span> </span>
+            </div>
+            Select language below :
+            <div class="languages">
+                <label>
+                    <input type="radio" name="languageType" class="languageTypeRadio" value="english">
+                    <span class="English">English</span>
+                </label>
+                <label>
+                    <input type="radio" name="languageType" class="languageTypeRadio" value="afrikaans">
+                    <span class="Afrikaans">Afrikaans</span>
+                </label>
+                <label>
+                    <input type="radio" name="languageType" class="languageTypeRadio" value="xhosa">
+                    <span class="isiXhosa">isiXhosa</span>
+                </label>
+            </div>
+        </div>
+        <div>
+            <button class="button-primary greetBtn" on type="button" name="button">Greet</button>
+        </div>
+        <strong>Greeting:</strong>
+        <span class=""><span class="greetName"> </span></span>
+    </div>
+</body>
+
+<script src="greet.js"></script>
