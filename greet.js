@@ -36,6 +36,9 @@ greetBtn.addEventListener('click', function () {
         var checkedRadioBtn = document.querySelector("input[name='languageType']:checked");
         if (checkedRadioBtn) {
             var languageType = checkedRadioBtn.value;
+        }if (keep[newName] === "") {
+            keep[newName] = undefined;
+            
         }
 
         if (keep[newName] === undefined) {
