@@ -13,15 +13,23 @@ var existing = JSON.parse(localStorage.getItem("Name"))
 var keep = existing || {};
 var counter = 0;
 
+
 window.onload = function () {
     var refreshNames = Object.keys(keep);
     counter = refreshNames.length;
     document.getElementById("total").innerHTML = counter;
 }
 
+
+
+
 greetBtn.addEventListener('click', function () {
-   
-    if (isNaN(textArea.value.trim())) {
+
+
+    const regex = /\d/;
+    const wack = regex.test(textArea.value);
+    console.log(wack);
+    if (wack!== true) {
         var newName = textArea.value.trim().toLowerCase();
         newName = newName.charAt(0).toUpperCase() + newName.slice(1);
         console.log(newName);
@@ -31,8 +39,9 @@ greetBtn.addEventListener('click', function () {
         }
 
         if (keep[newName] === undefined) {
-            keep[newName] = 0;
+            keep[newName] = 0; 
             counter++;
+
         }
 
         if (languageType === "english") {
@@ -47,13 +56,18 @@ greetBtn.addEventListener('click', function () {
             final = xhosa + newName;
 
         }
+
+
         localStorage.setItem("Name", JSON.stringify(keep));
-
+       
         document.getElementById("total").innerHTML = counter;
-
         greetNameElement.innerHTML = final;
+
+
+
+
         textArea.value = ""
-    } else{
+    } else {
         greetNameElement.innerHTML = "Please enter valid name.";
     } textArea.value = ""
 })
