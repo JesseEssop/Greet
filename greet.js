@@ -20,6 +20,7 @@ window.onload = function () {
 }
 
 greetBtn.addEventListener('click', function () {
+   
     if (isNaN(textArea.value.trim())) {
         var newName = textArea.value.trim().toLowerCase();
         newName = newName.charAt(0).toUpperCase() + newName.slice(1);
@@ -51,7 +52,10 @@ greetBtn.addEventListener('click', function () {
         document.getElementById("total").innerHTML = counter;
 
         greetNameElement.innerHTML = final;
-    }
+        textArea.value = ""
+    } else{
+        greetNameElement.innerHTML = "Please enter valid name.";
+    } textArea.value = ""
 })
 
 
