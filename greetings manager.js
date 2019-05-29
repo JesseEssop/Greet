@@ -10,16 +10,20 @@ function GreetingsManager(refreshData) {
     }
     function addNewName(name) {
 
-        if (name) {
+        if (name.trim()) {
             if (testNames(name)) {
                 if (keep[name] === undefined) {
 
                     keep[name] = 0;
                     updatesCounter();
                 }
+
+
             }
+
         }
-    }
+    } 
+    
     function greetLanguage(languageType) {
         var english = "Hello, ";
         var afrikaans = "Hallo, ";
@@ -44,12 +48,12 @@ function GreetingsManager(refreshData) {
 
         var regex = /\d/;
         var wack = regex.test(input);
-        console.log(wack);
         if (wack !== true) {
             newName = input.trim().toLowerCase();
             newName = newName.charAt(0).toUpperCase() + newName.slice(1);
             return true;
         }
+
     }
 
     function displayRecords() {
