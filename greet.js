@@ -35,7 +35,6 @@ greetBtn.addEventListener('click', function () {
     localStorage.setItem("Name", JSON.stringify(greetInstance.records()));
     displayCount();
     greetNameElement.innerHTML = greetInstance.greet(languageType);
-   
 })
 
 

@@ -2,6 +2,7 @@ function GreetingsManager(refreshData) {
     var keep = refreshData || {};
     var counter = 0;
     var newName;
+    var regex = /[0-9$@$!%*?&#^-_. +]/;
 
     function updatesCounter() {
         var keys = Object.keys(keep);
@@ -16,19 +17,22 @@ function GreetingsManager(refreshData) {
 
                     keep[name] = 0;
                     updatesCounter();
-                }
-
+                } 
 
             }
-
         }
-    } 
-    
+    }
+
     function greetLanguage(languageType) {
         var english = "Hello, ";
         var afrikaans = "Hallo, ";
         var xhosa = "Molo, ";
         var end;
+    
+        if(newName === undefined ){
+            end = "PLEASE ENTER VALID NAME";
+            return end;
+        }
         if (languageType === "english") {
             end = english + newName;
 
@@ -46,13 +50,13 @@ function GreetingsManager(refreshData) {
     }
     function testNames(input) {
 
-        var regex =/[0-9$@$!%*?&#^-_. +]/;
+        
         var wack = regex.test(input);
         if (wack !== true) {
             newName = input.trim().toLowerCase();
             newName = newName.charAt(0).toUpperCase() + newName.slice(1);
             return true;
-        }
+        } 
 
     }
 
