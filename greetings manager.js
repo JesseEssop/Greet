@@ -46,7 +46,7 @@ function GreetingsManager(refreshData) {
     }
     function testNames(input) {
 
-        var regex = /\d/;
+        var regex =/[0-9$@$!%*?&#^-_. +]/;
         var wack = regex.test(input);
         if (wack !== true) {
             newName = input.trim().toLowerCase();
