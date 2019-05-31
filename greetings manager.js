@@ -41,8 +41,8 @@ function GreetingsManager(refreshData) {
 
         console.log(alreadyExist)
         if (alreadyExist === true) {
-            alert("Name already greeted");
-            display = testLang(languageType)
+            display = "Name already greeted";
+            
             return display;
 
         }
