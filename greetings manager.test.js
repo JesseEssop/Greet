@@ -36,5 +36,22 @@ describe('Greetings Test', function () {
         assert.equal(testInstance.greet("afrikaans"), "PLEASE ENTER VALID NAME");
         assert.equal(testInstance.greet("xhosa"),"PLEASE ENTER VALID NAME");
     });
-    
+    it('Should return 1 when a new name is entered ', function () {
+        var testCount = GreetingsManager();
+        testCount.add("Steve");
+        assert.equal(testCount.count(), 1);
+    });
+    it('Should return 1 when a new name is entered and remain 1 if the same name is used ', function () {
+        var testCount = GreetingsManager();
+        testCount.add("Steve");
+        testCount.add("Steve");
+        assert.equal(testCount.count(), 1);
+    });
+    it('Should return 3 when different names are entered ', function () {
+        var testCount = GreetingsManager();
+        testCount.add("Steve");
+        testCount.add("Dave");
+        testCount.add("Mike");
+        assert.equal(testCount.count(), 3);
+    });
 });

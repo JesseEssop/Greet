@@ -17,15 +17,15 @@ function GreetingsManager(refreshData) {
             if (testNames(name)) {
                 var testData = [];
                 testData = Object.keys(keep);
-                
+
                 for (var x = 0; x < testData.length; x++) {
                     if (testData[x] === newName) {
                         alreadyExist = true;
                     }
                 }
-                    if (alreadyExist === false) {
+                if (alreadyExist === false) {
                     if (keep[newName] === undefined) {
- 
+
                         keep[newName] = 0;
                         updatesCounter();
                     }
@@ -37,39 +37,45 @@ function GreetingsManager(refreshData) {
 
 
     function greetLanguage(languageType) {
+        var display;
+
+        console.log(alreadyExist)
+        if (alreadyExist === true) {
+            alert("Name already greeted");
+            display = testLang(languageType)
+            return display;
+
+        }
+
+        display = testLang(languageType);
+        console.log(display)
+        return display;
+
+    }
+
+    function testLang(languageType){
         var english = "Hello, ";
         var afrikaans = "Hallo, ";
         var xhosa = "Molo, ";
         var end;
-
-        console.log(alreadyExist)
-        if (alreadyExist === true) {
-         alert("Name already greeted");
-
-
-        } else {
-
-            if (newName === undefined) {
-                end = "PLEASE ENTER VALID NAME";
-                return end;
-            }
-            if (languageType === "english") {
-                end = english + newName;
-
-            }
-            if (languageType === "afrikaans") {
-                end = afrikaans + newName;
-
-            }
-            if (languageType === "xhosa") {
-                end = xhosa + newName;
-
-            } return end;
+        if (newName === undefined) {
+            end = "PLEASE ENTER VALID NAME";
+            return end;
         }
+        if (languageType === "english") {
+            end = english + newName;
 
+        }
+        if (languageType === "afrikaans") {
+            end = afrikaans + newName;
 
+        }
+        if (languageType === "xhosa") {
+            end = xhosa + newName;
+
+        } 
+        return end;
     }
-
 
 
 
