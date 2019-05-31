@@ -42,13 +42,11 @@ function GreetingsManager(refreshData) {
         console.log(alreadyExist)
         if (alreadyExist === true) {
             display = "Name already greeted";
-            
-            return display;
+          
 
         }
 
         display = testLang(languageType);
-        console.log(display)
         return display;
 
     }
