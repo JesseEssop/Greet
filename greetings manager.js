@@ -2,7 +2,7 @@ function GreetingsManager(refreshData) {
     var keep = refreshData || {};
     var counter = 0;
     var newName;
-    var regex = /[0-9$@$!%*?&#^-_. +]/;
+    var regex = /[0-9$@$!%*?&#^-_. +\[.*?\]]/;
     var alreadyExist = false;
 
     function updatesCounter() {
@@ -25,7 +25,7 @@ function GreetingsManager(refreshData) {
                 }
                     if (alreadyExist === false) {
                     if (keep[newName] === undefined) {
-
+ 
                         keep[newName] = 0;
                         updatesCounter();
                     }
