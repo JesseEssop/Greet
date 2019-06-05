@@ -12,7 +12,6 @@ function GreetingsManager(refreshData) {
     }
     function addNewName(name) {
         alreadyExist = false;
-
         if (name.trim()) {
             if (testNames(name)) {
                 var testData = [];
@@ -38,20 +37,16 @@ function GreetingsManager(refreshData) {
 
     function greetLanguage(languageType) {
         var display;
-
-        console.log(alreadyExist)
         if (alreadyExist === true) {
             display = "Name already greeted";
-          
-
+            return display;
         }
-
         display = testLang(languageType);
-        return display;
 
+        return display;
     }
 
-    function testLang(languageType){
+    function testLang(languageType) {
         var english = "Hello, ";
         var afrikaans = "Hallo, ";
         var xhosa = "Molo, ";
@@ -71,7 +66,7 @@ function GreetingsManager(refreshData) {
         if (languageType === "xhosa") {
             end = xhosa + newName;
 
-        } 
+        }
         return end;
     }
 
